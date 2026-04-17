@@ -1,0 +1,40 @@
+# --- General ---
+.DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
+*.log
+*.tmp
+*.bak
+*.swp
+.vscode/
+.idea/
+*.iml
+
+# --- Backend (Spring Boot / Maven) ---
+backend/target/
+backend/.mvn/
+backend/mvnw
+backend/mvnw.cmd
+backend/.settings/
+backend/.classpath
+backend/.project
+backend/.factorypath
+
+# --- Frontend (Angular / Node) ---
+frontend/node_modules/
+frontend/dist/
+frontend/.angular/
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+frontend/.env
+frontend/.env.local
+frontend/.env.development.local
+frontend/.env.test.local
+frontend/.env.production.local
+frontend/coverage/
+
+# --- Documentation ---
+# Keep GEMINI.md for context, but ignore other generated plans if needed
+# plans/ 
