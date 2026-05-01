@@ -1,0 +1,39 @@
+<div class="space-y-12 animate-fade-in">
+  <section>
+    <ng-container *ngIf="(coverLetter$ | async) as letter; else letterLoading">
+      <h2 class="text-2xl font-black mb-10 flex items-center">
+        <span class="w-8 h-1 bg-blue-600 mr-4"></span>
+        Cover Letter
+      </h2>
+      
+      <div class="space-y-8 text-slate-700 dark:text-slate-300">
+        <div class="space-y-1">
+          <p class="font-bold text-slate-400 uppercase tracking-widest text-xs">{{ letter.date }}</p>
+          <div class="pt-4">
+            <p class="font-black text-lg">{{ letter.recipientName }}</p>
+            <p class="font-bold text-blue-600 dark:text-blue-400 text-sm">{{ letter.recipientTitle }}</p>
+            <p class="font-bold text-slate-500">{{ letter.companyName }}</p>
+          </div>
+        </div>
+
+        <div class="py-4 border-y border-slate-100 dark:border-slate-800">
+          <p class="font-black text-xl tracking-tight">Re: {{ letter.subject }}</p>
+        </div>
+
+        <div class="space-y-6 text-lg leading-relaxed font-medium">
+          <p *ngFor="let paragraph of letter.bodyParagraphs">
+            {{ paragraph }}
+          </p>
+        </div>
+
+        <div class="pt-8">
+          <p class="font-bold text-slate-400 uppercase tracking-widest text-xs mb-2">Sincerely,</p>
+          <p class="text-3xl font-black tracking-tighter" *ngIf="profile$ | async as profile">{{ profile.name }}</p>
+        </div>
+      </div>
+    </ng-container>
+    <ng-template #letterLoading>
+      <app-loading-skeleton type="cover-letter"></app-loading-skeleton>
+    </ng-template>
+  </section>
+</div>

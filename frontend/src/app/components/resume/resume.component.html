@@ -1,0 +1,92 @@
+<div class="space-y-16 animate-fade-in">
+  <!-- Summary -->
+  <section>
+    <ng-container *ngIf="about$ | async as about; else summaryLoading">
+      <h2 class="text-2xl font-black mb-6 flex items-center">
+        <span class="w-8 h-1 bg-blue-600 mr-4"></span>
+        Profile
+      </h2>
+      <p class="text-lg leading-relaxed text-slate-600 dark:text-slate-400 font-medium">
+        {{ about.summary }}
+      </p>
+    </ng-container>
+    <ng-template #summaryLoading>
+      <app-loading-skeleton type="text-block"></app-loading-skeleton>
+    </ng-template>
+  </section>
+
+  <!-- Experience -->
+  <section>
+    <ng-container *ngIf="experience$ | async as experiences; else expLoading">
+      <h2 class="text-2xl font-black mb-8 flex items-center">
+        <span class="w-8 h-1 bg-blue-600 mr-4"></span>
+        Experience
+      </h2>
+      <div class="space-y-12">
+        <div *ngFor="let exp of experiences" class="group">
+          <div class="flex flex-col sm:flex-row sm:items-baseline justify-between mb-4">
+            <h3 class="text-xl font-black group-hover:text-blue-600 transition-colors">{{ exp.position }}</h3>
+            <span class="text-sm font-bold text-slate-400">{{ exp.duration }}</span>
+          </div>
+          <div class="flex items-center text-blue-600 dark:text-blue-400 font-bold text-sm mb-4 uppercase tracking-wider">
+            {{ exp.company }} <span class="mx-2 text-slate-300">•</span> {{ exp.location }}
+          </div>
+          <p class="text-slate-600 dark:text-slate-400 leading-relaxed font-medium">
+            {{ exp.description }}
+          </p>
+        </div>
+      </div>
+    </ng-container>
+    <ng-template #expLoading>
+      <app-loading-skeleton type="experience"></app-loading-skeleton>
+    </ng-template>
+  </section>
+
+  <!-- Projects -->
+  <section>
+    <ng-container *ngIf="projects$ | async as projects; else projLoading">
+      <h2 class="text-2xl font-black mb-8 flex items-center">
+        <span class="w-8 h-1 bg-blue-600 mr-4"></span>
+        Key Projects
+      </h2>
+      <div class="grid gap-8">
+        <div *ngFor="let project of projects" class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-800/30 border border-slate-200 dark:border-slate-800 hover:border-blue-500 dark:hover:border-blue-500 transition-all">
+          <div class="flex justify-between items-start mb-4">
+            <h3 class="text-lg font-black">{{ project.title }}</h3>
+            <a [href]="project.link" target="_blank" class="text-blue-600">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+            </a>
+          </div>
+          <p class="text-sm text-slate-600 dark:text-slate-400 mb-4 font-medium">{{ project.description }}</p>
+          <div class="flex flex-wrap gap-2">
+            <span *ngFor="let tech of project.techStack" class="text-[10px] font-black uppercase tracking-widest text-blue-600 dark:text-blue-400">
+              {{ tech }}
+            </span>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+    <ng-template #projLoading>
+      <app-loading-skeleton type="projects"></app-loading-skeleton>
+    </ng-template>
+  </section>
+
+  <!-- Hobbies -->
+  <section>
+    <ng-container *ngIf="hobbies$ | async as hobbies; else hobLoading">
+      <h2 class="text-2xl font-black mb-8 flex items-center">
+        <span class="w-8 h-1 bg-blue-600 mr-4"></span>
+        Interests
+      </h2>
+      <div class="flex flex-wrap gap-4">
+        <div *ngFor="let hobby of hobbies" class="px-6 py-4 rounded-xl bg-slate-50 dark:bg-slate-800/30 border border-slate-200 dark:border-slate-800">
+          <h3 class="font-black text-sm mb-1">{{ hobby.name }}</h3>
+          <p class="text-xs text-slate-500">{{ hobby.description }}</p>
+        </div>
+      </div>
+    </ng-container>
+    <ng-template #hobLoading>
+      <app-loading-skeleton type="hobbies"></app-loading-skeleton>
+    </ng-template>
+  </section>
+</div>
