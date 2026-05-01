@@ -1,6 +1,6 @@
-# Personal Website (Spring Boot + Angular)
+# Makarand P. Thorat - Personal Website (Spring Boot + Angular)
 
-A minimal, clean, and responsive personal portfolio website. This project features a Spring Boot REST API backend and an Angular SPA frontend with Tailwind CSS 4.
+A professional, clean, and responsive personal portfolio website showcasing experience, projects, and skills. This project features a Spring Boot REST API backend and a modular Angular SPA frontend styled with Tailwind CSS 3.
 
 ## Project Structure
 
@@ -10,11 +10,13 @@ personal-website/
 │   ├── src/main/java/      # Java Source Code
 │   └── pom.xml             # Maven Configuration
 ├── frontend/               # Angular SPA
-│   ├── src/app/            # Angular Components, Services, Models
-│   ├── src/styles.css      # Global Styles (Tailwind CSS 4)
+│   ├── src/app/            # Angular Components (Sidebar, Resume, CoverLetter)
+│   ├── src/styles.css      # Global Styles (Tailwind CSS 3)
+│   ├── tailwind.config.js  # Tailwind CSS Configuration
 │   └── package.json        # Node.js Dependencies
 ├── README.md               # Getting Started Guide
 ├── GEMINI.md               # Project Context & Architecture
+├── resources/              # Static resources like Resume PDFs
 └── .gitignore              # Git Exclusions
 ```
 
@@ -46,11 +48,13 @@ ng serve
 
 ## Features
 
-- **Single Page Application (SPA):** Smooth, unified user experience.
-- **Responsive Design:** Mobile-first approach using Tailwind CSS 4.
+- **Single Page Application (SPA):** Smooth, unified user experience built with standalone Angular components.
+- **Responsive Design:** Mobile-first approach using Tailwind CSS 3.
 - **Dark Mode Support:** Seamless switching between light and dark themes.
-- **RESTful Integration:** Dynamic content fetching from the backend.
-- **Clean UI:** Minimalist aesthetic focused on clarity and performance.
+- **RESTful Integration:** Dynamic content fetching from the Spring Boot backend.
+- **Download as PDF:** Generate a high-quality PDF of the active view (Resume or Cover Letter) using `html2canvas` and `jspdf`.
+- **Loading Skeletons:** Animated skeleton loaders provide a polished UI while waiting for API responses.
+- **Smart Components:** Modular structure with components autonomously fetching their required data.
 
 ## API Endpoints
 
@@ -60,3 +64,4 @@ ng serve
 - `GET /api/projects` - Featured work and portfolio items.
 - `GET /api/hobbies` - Personal interests.
 - `GET /api/contact` - Communication links.
+- `GET /api/cover-letter` - Cover letter content.
