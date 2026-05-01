@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { ResumeComponent } from './components/resume/resume.component';
@@ -19,6 +19,8 @@ export class AppComponent implements OnInit {
   today = new Date();
   viewMode: 'resume' | 'cover-letter' = 'resume';
 
+  @ViewChild('pdfContainer', { static: false }) pdfContainer!: ElementRef;
+
   ngOnInit(): void {
     if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
       this.isDarkMode = true;
@@ -31,16 +33,24 @@ export class AppComponent implements OnInit {
 
   async downloadPDF() {
     this.isGeneratingPdf = true;
-    const element = document.getElementById('pdf-container');
+    const element = this.pdfContainer.nativeElement;
     
     if (element) {
       try {
+        // Save current scroll position and scroll to top to prevent html2canvas offset issues
+        const originalScrollY = window.scrollY;
+        window.scrollTo(0, 0);
+
         // Render the UI to canvas
         const canvas = await html2canvas(element, {
           scale: 2, // Higher resolution for crisp text
           useCORS: true,
-          backgroundColor: this.isDarkMode ? '#0f172a' : '#ffffff' // slate-900 or white
+          backgroundColor: this.isDarkMode ? '#0f172a' : '#ffffff', // slate-900 or white
+          windowWidth: 1024 // Force desktop width so md: breakpoints apply (side-by-side layout)
         });
+        
+        // Restore scroll position
+        window.scrollTo(0, originalScrollY);
         
         const imgData = canvas.toDataURL('image/png');
         

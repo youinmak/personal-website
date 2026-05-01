@@ -35,6 +35,7 @@ frontend/.env.test.local
 frontend/.env.production.local
 frontend/coverage/
 
+resources/*
 # --- Documentation ---
 # Keep GEMINI.md for context, but ignore other generated plans if needed
 # plans/ 

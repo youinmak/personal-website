@@ -85,3 +85,20 @@
 <ng-template #langLoading>
   <app-loading-skeleton type="languages"></app-loading-skeleton>
 </ng-template>
+
+<!-- Academic Qualifications Section -->
+<div *ngIf="profile$ | async as profile" class="mb-12">
+  <ng-container *ngIf="profile.qualifications && profile.qualifications.length > 0">
+    <h2 class="text-xs font-black uppercase tracking-[0.2em] text-slate-400 mb-6">Education</h2>
+    <div class="space-y-6">
+      <div *ngFor="let qual of profile.qualifications" class="border-l-2 border-slate-200 dark:border-slate-700 pl-4">
+        <h3 class="text-sm font-bold">{{ qual.examination }}</h3>
+        <p class="text-xs text-slate-600 dark:text-slate-400 mt-1">{{ qual.institute }}</p>
+        <div class="flex justify-between items-center mt-2 text-xs font-medium text-slate-500">
+          <span>{{ qual.academicYear }}</span>
+          <span class="bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded">{{ qual.score }}</span>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>

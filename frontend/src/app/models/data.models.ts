@@ -3,6 +3,13 @@ export interface SocialLink {
   url: string;
 }
 
+export interface Qualification {
+  examination: string;
+  institute: string;
+  academicYear: string;
+  score: string;
+}
+
 export interface Language {
   name: string;
   level: string;
@@ -15,6 +22,7 @@ export interface Profile {
   location: string;
   phone: string;
   socialLinks: SocialLink[];
+  qualifications: Qualification[];
 }
 
 export interface About {

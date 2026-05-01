@@ -16,8 +16,13 @@ public class DataService {
             "Pune, India",
             "+91 90 2155 3444",
             List.of(
-                new SocialLink("LinkedIn", "https://linkedin.com/in/makarand-thorat"),
-                new SocialLink("GitHub", "https://github.com/makarandthorat")
+                new SocialLink("LinkedIn", "https://www.linkedin.com/in/makrand-thorat-2215111b/"),
+                new SocialLink("GitHub", "https://github.com/youinmak")
+            ),
+            List.of(
+                new Qualification("B. Tech.", "College Of Engineering Pune(COEP)", "2006-10", "6.9/10 CGPA"),
+                new Qualification("Higher Secondary School", "Yashwantrao Chavan College of Science, Karad", "2005-06", "84.50%"),
+                new Qualification("Secondary School", "Vidhyarthi Vikas Vidhyalay", "2003-04", "83.73%")
             )
         );
     }
