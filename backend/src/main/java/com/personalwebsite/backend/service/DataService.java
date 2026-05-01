@@ -10,84 +10,107 @@ public class DataService {
 
     public Profile getProfile() {
         return new Profile(
-            "John Doe",
-            "Senior Full Stack Developer",
-            "Passionate about building scalable web applications and mentorship.",
-            "San Francisco, CA",
-            "+1 (555) 000-0000",
+            "Makarand P. Thorat",
+            "Senior Software Developer & Architect",
+            "15+ years of experience in analysis, design and development of various J2EE applications, specializing in e-commerce on the Hybris Platform.",
+            "Pune, India",
+            "+91 90 2155 3444",
             List.of(
-                new SocialLink("LinkedIn", "https://linkedin.com/in/johndoe"),
-                new SocialLink("GitHub", "https://github.com/johndoe"),
-                new SocialLink("Twitter", "https://twitter.com/johndoe")
+                new SocialLink("LinkedIn", "https://linkedin.com/in/makarand-thorat"),
+                new SocialLink("GitHub", "https://github.com/makarandthorat")
             )
         );
     }
 
     public About getAbout() {
         return new About(
-            "I am a results-oriented Senior Full Stack Developer with over 8 years of experience in designing, developing, and deploying high-performance web applications. Expertise in Java/Spring Boot ecosystems and modern frontend frameworks like Angular and React. Proven track record of leading cross-functional teams and delivering complex projects on time.",
-            List.of("Strategic Planning", "System Architecture", "Team Leadership", "Agile Methodologies", "Cloud Computing")
+            "I am a highly experienced developer and architect with over 15 years in the IT industry. I hold multiple certifications including SAP Certified Development Professional (Hybris Commerce), Microsoft GitHub Copilot Certification, and Oracle Certified Professional Java SE 8/11 Programmer. My expertise spans cloud-native microservices architecture, Headless commerce, and integrating complex ERP systems with e-commerce platforms.",
+            List.of("Java", "Spring Boot", "SAP Hybris", "Microservices", "AWS", "Angular", "ReactJS", "Kafka", "SQL")
         );
     }
 
     public List<Experience> getExperience() {
         return List.of(
-            new Experience("Tech Innovators Inc.", "Senior Software Engineer", "Jan 2021 - Present", "San Francisco, CA", "Leading the migration of monolithic services to a microservices architecture. Reduced system latency by 40% using Redis and Kafka."),
-            new Experience("Global Solutions Corp.", "Software Engineer", "Jun 2017 - Dec 2020", "New York, NY", "Developed core features for a high-traffic e-commerce platform. Optimized database queries and improved frontend load times by 25%."),
-            new Experience("Startup Hub", "Junior Developer", "Aug 2015 - May 2017", "Austin, TX", "Worked on several MVP projects using React and Node.js. Integrated third-party APIs for payment processing and analytics.")
+            new Experience(
+                "Nagarro Enterprise Services Private Limited", 
+                "Senior Software Architect", 
+                "Current", 
+                "Pune, India", 
+                "Leading multiple project modules from Cart, Checkout to OMS for high-profile clients like Amway and Tata CLiQ. Designing cloud-native microservices, integrating Generative AI tools, and providing technical mentorship to geographically distributed teams."
+            )
         );
     }
 
     public List<Project> getProjects() {
         return List.of(
-            new Project("CloudScale Analytics", "A real-time analytics dashboard for cloud infrastructure.", List.of("Spring Boot", "React", "AWS", "Prometheus"), "https://github.com/johndoe/cloudscale"),
-            new Project("SecurePay Gateway", "A robust and secure payment gateway integration.", List.of("Java", "Spring Security", "Stripe API"), "https://github.com/johndoe/securepay"),
-            new Project("TaskFlow Pro", "An enterprise-level project management tool.", List.of("Angular", "Node.js", "MongoDB"), "https://github.com/johndoe/taskflow")
+            new Project(
+                "Amway ANA Development and Consulting", 
+                "Design and architecture for Amway's e-commerce platform including Cart, Checkout, OMS, and payment integrations. Infrastructure implemented using AWS (DynamoDB, ECS, Lambda).", 
+                List.of("Java", "Spring Cloud", "Angular", "AWS", "Kafka"), 
+                "#"
+            ),
+            new Project(
+                "Tata CLiQ/Luxury Development", 
+                "Omnichannel e-commerce platform integration. Designed end-to-end commerce flows across PDP, cart, promotions, and payments using SAP Hybris OCC.", 
+                List.of("SAP Hybris", "ReactJS", "Elastic", "Solr", "Microservices"), 
+                "#"
+            ),
+            new Project(
+                "iShopChangi Marketplace platform", 
+                "Digital transformation project designing a new generation marketplace using SAP commerce cloud, Mirakl, and Adobe AEM.", 
+                List.of("SAP Commerce Cloud", "AEM", "React", "REST APIs"), 
+                "#"
+            ),
+            new Project(
+                "Adastria B2C (Japan)", 
+                "E-commerce portal development integrating Hybris commerce engine with Adobe Experience Manager CMS. Handled core DB integration and custom checkouts.", 
+                List.of("Hybris", "AEM", "Zeta Search"), 
+                "#"
+            )
         );
     }
 
     public List<String> getTools() {
         return List.of(
-            "IntelliJ IDEA", "VS Code", "Docker", "Kubernetes", "Jira", "Jenkins", "Git", "Postman"
+            "IntelliJ IDEA", "Eclipse", "Git", "Maven", "Jmeter", "ActiveMQ", "Apache Solr", "AWS", "Docker", "Splunk", "Grafana"
         );
     }
 
     public List<Language> getLanguages() {
         return List.of(
-            new Language("English", "Native"),
-            new Language("Spanish", "Professional Working"),
-            new Language("German", "Elementary")
+            new Language("English", "Fluent"),
+            new Language("Hindi", "Native"),
+            new Language("Marathi", "Native")
         );
     }
 
     public List<Hobby> getHobbies() {
         return List.of(
-            new Hobby("Mountain Biking", "Exploring challenging trails."),
-            new Hobby("Open Source", "Contributing to various software projects."),
-            new Hobby("Chess", "Playing in local tournaments.")
+            new Hobby("Open Source", "Exploring and contributing to new technologies."),
+            new Hobby("Mentorship", "Guiding junior developers and conducting training sessions.")
         );
     }
 
     public Contact getContact() {
         return new Contact(
-            "john.doe@techinnovators.com",
-            "https://linkedin.com/in/johndoe",
-            "https://github.com/johndoe"
+            "makarand.coep@gmail.com",
+            "https://linkedin.com/in/makarand-thorat",
+            "https://github.com/makarandthorat"
         );
     }
 
     public CoverLetter getCoverLetter() {
         return new CoverLetter(
-            "October 24, 2023",
+            "May 1, 2026",
             "Hiring Manager",
             "Director of Engineering",
-            "Innovation Labs",
-            "Application for Senior Full Stack Developer Position",
+            "Target Company",
+            "Application for Senior Software Architect Position",
             List.of(
-                "I am writing to express my strong interest in the Senior Full Stack Developer position at Innovation Labs. Having followed your recent breakthroughs in AI-driven automation, I am inspired by your commitment to technical excellence and user-centric design. With over 8 years of experience in the Java/Spring and Angular ecosystems, I am confident that my background makes me an ideal fit for your team.",
-                "In my current role at Tech Innovators Inc., I led the migration of our legacy monolith to a distributed microservices architecture, which improved system uptime by 30% and allowed for 5x faster feature deployment. I specialize in building robust backend systems while ensuring the frontend remains intuitive and highly performant. My approach is always data-driven, and I thrive in collaborative environments where innovation is the priority.",
-                "I am particularly drawn to Innovation Labs because of your focus on solving complex scale challenges. I am eager to bring my expertise in system architecture and cloud-native development to help you achieve your goal of revolutionizing the enterprise software space. I am confident that my passion for clean code and mentorship would be a valuable asset to your engineering culture.",
-                "Thank you for your time and consideration. I have attached my resume and look forward to the possibility of discussing how my skills can contribute to the continued success of Innovation Labs."
+                "I am writing to express my strong interest in the Senior Software Architect position. With over 15 years of experience in designing, developing, and deploying high-performance J2EE and e-commerce applications, I am confident in my ability to bring valuable expertise to your team.",
+                "In my current role at Nagarro, I have architected and led multiple highly complex e-commerce platforms for global clients like Amway and Tata CLiQ. I specialize in SAP Hybris, Spring Boot microservices, and cloud-native architectures on AWS. Recently, I have also integrated AI coding assistants into the development lifecycle to accelerate delivery and improve solution design.",
+                "I am passionate about clean architecture, scalable systems, and continuous learning, as evidenced by my certifications in Java, Spring, and Hybris. I thrive in collaborative, Agile environments and enjoy mentoring engineering teams to achieve maximum productivity.",
+                "Thank you for considering my application. I have attached my resume and look forward to discussing how my technical background and leadership skills align with your organization's goals."
             ),
             "Best regards,"
         );

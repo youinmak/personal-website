@@ -1,0 +1,87 @@
+<div *ngIf="profile$ | async as profile; else profileLoading" class="mb-12">
+  <h1 class="text-4xl font-black mb-2 tracking-tighter">{{ profile.name }}</h1>
+  <p class="text-blue-600 dark:text-blue-400 font-bold uppercase tracking-widest text-sm mb-6">{{ profile.role }}</p>
+  
+  <div class="space-y-4 text-sm text-slate-600 dark:text-slate-400">
+    <div class="flex items-center">
+      <span class="mr-3">📍</span> {{ profile.location }}
+    </div>
+    <div class="flex items-center">
+      <span class="mr-3">📞</span> {{ profile.phone }}
+    </div>
+    <div *ngIf="contact$ | async as contact" class="flex items-center">
+      <span class="mr-3">✉️</span> {{ contact.email }}
+    </div>
+  </div>
+
+  <div class="mt-8 flex flex-wrap gap-4">
+    <a *ngFor="let link of profile.socialLinks" [href]="link.url" target="_blank" class="text-xs font-bold px-3 py-1 bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-md hover:border-blue-500 transition-colors">
+      {{ link.platform }}
+    </a>
+  </div>
+</div>
+<ng-template #profileLoading>
+  <app-loading-skeleton type="profile"></app-loading-skeleton>
+</ng-template>
+
+<!-- View Toggle -->
+<div class="mb-12">
+  <h2 class="text-xs font-black uppercase tracking-[0.2em] text-slate-400 mb-6">View Mode</h2>
+  <div class="flex p-1 bg-slate-200 dark:bg-slate-700 rounded-xl">
+    <button (click)="setViewMode('resume')" 
+            [class.bg-white]="viewMode === 'resume'" 
+            [class.dark:bg-slate-600]="viewMode === 'resume'"
+            [class.shadow-md]="viewMode === 'resume'"
+            class="flex-1 py-2 text-xs font-black uppercase tracking-wider rounded-lg transition-all">
+      Resume
+    </button>
+    <button (click)="setViewMode('cover-letter')" 
+            [class.bg-white]="viewMode === 'cover-letter'" 
+            [class.dark:bg-slate-600]="viewMode === 'cover-letter'"
+            [class.shadow-md]="viewMode === 'cover-letter'"
+            class="flex-1 py-2 text-xs font-black uppercase tracking-wider rounded-lg transition-all">
+      Letter
+    </button>
+  </div>
+</div>
+
+<!-- Skills Section -->
+<div *ngIf="about$ | async as about; else skillsLoading" class="mb-12">
+  <h2 class="text-xs font-black uppercase tracking-[0.2em] text-slate-400 mb-6">Expertise</h2>
+  <div class="flex flex-wrap gap-2">
+    <span *ngFor="let skill of about.skills" class="px-3 py-1 bg-slate-200 dark:bg-slate-700 rounded text-xs font-bold uppercase tracking-wider">
+      {{ skill }}
+    </span>
+  </div>
+</div>
+<ng-template #skillsLoading>
+  <app-loading-skeleton type="skills"></app-loading-skeleton>
+</ng-template>
+
+<!-- Tools Section -->
+<div *ngIf="tools$ | async as tools; else toolsLoading" class="mb-12">
+  <h2 class="text-xs font-black uppercase tracking-[0.2em] text-slate-400 mb-6">Tools</h2>
+  <div class="grid grid-cols-2 gap-y-3 gap-x-4">
+    <div *ngFor="let tool of tools" class="flex items-center text-sm font-medium">
+      <span class="w-1.5 h-1.5 bg-blue-500 rounded-full mr-2"></span>
+      {{ tool }}
+    </div>
+  </div>
+</div>
+<ng-template #toolsLoading>
+  <app-loading-skeleton type="tools"></app-loading-skeleton>
+</ng-template>
+
+<!-- Languages Section -->
+<div *ngIf="languages$ | async as languages; else langLoading" class="mb-12">
+  <h2 class="text-xs font-black uppercase tracking-[0.2em] text-slate-400 mb-6">Languages</h2>
+  <div class="space-y-4">
+    <div *ngFor="let lang of languages" class="flex justify-between items-center">
+      <span class="text-sm font-bold">{{ lang.name }}</span>
+      <span class="text-xs text-slate-500">{{ lang.level }}</span>
+    </div>
+  </div>
+</div>
+<ng-template #langLoading>
+  <app-loading-skeleton type="languages"></app-loading-skeleton>
+</ng-template>
