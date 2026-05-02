@@ -25,9 +25,18 @@ class DataServiceTest {
     @Test
     void testDataLoading() {
         assertNotNull(dataService.getProfile(), "Profile should not be null");
-        assertEquals("Makarand P. Thorat", dataService.getProfile().name());
+        assertEquals("Makrand P. Thorat", dataService.getProfile().name());
         assertFalse(dataService.getExperience().isEmpty(), "Experience list should not be empty");
         assertFalse(dataService.getCertifications().isEmpty(), "Certifications list should not be empty");
+    }
+
+    @Test
+    void testGetTools() {
+        var tools = dataService.getTools();
+        assertNotNull(tools);
+        assertFalse(tools.isEmpty(), "Tools list should not be empty");
+        assertTrue(tools.contains("AWS"), "Tools should contain AWS");
+        assertTrue(tools.contains("Docker"), "Tools should contain Docker");
     }
 
     @Test

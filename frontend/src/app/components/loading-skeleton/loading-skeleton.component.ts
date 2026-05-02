@@ -8,5 +8,5 @@ import { CommonModule } from '@angular/common';
   templateUrl: './loading-skeleton.component.html'
 })
 export class LoadingSkeletonComponent {
-  @Input() type: 'profile' | 'skills' | 'tools' | 'languages' | 'text-block' | 'experience' | 'projects' | 'hobbies' | 'cover-letter' = 'text-block';
+  @Input() type: 'profile' | 'skills' | 'tools' | 'languages' | 'text-block' | 'experience' | 'projects' | 'hobbies' | 'cover-letter' | 'expertise' | 'certifications' = 'text-block';
 }
