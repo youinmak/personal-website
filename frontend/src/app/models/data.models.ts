@@ -50,6 +50,23 @@ export interface Hobby {
   description: string;
 }
 
+export interface Certification {
+  title: string;
+  issuer: string;
+  date: string;
+  link: string;
+}
+
+export interface Award {
+  title: string;
+  date: string;
+}
+
+export interface SkillCategory {
+  category: string;
+  skills: string[];
+}
+
 export interface Contact {
   email: string;
   linkedIn: string;

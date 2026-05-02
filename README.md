@@ -43,25 +43,26 @@ The frontend is a single-page application that consumes the backend API.
 cd frontend
 npm install
 ng serve
-```
-- **Website URL:** `http://localhost:4200`
+- **API URL:** `http://localhost:8080/api`
+- **Data Source:** Config-driven via `backend/src/main/resources/resume-data.json`. No code changes required to update content.
 
-## Features
-
-- **Single Page Application (SPA):** Smooth, unified user experience built with standalone Angular components.
-- **Responsive Design:** Mobile-first approach using Tailwind CSS 3.
-- **Dark Mode Support:** Seamless switching between light and dark themes.
-- **RESTful Integration:** Dynamic content fetching from the Spring Boot backend.
-- **Download as PDF:** Generate a high-quality PDF of the active view (Resume or Cover Letter) using `html2canvas` and `jspdf`.
-- **Loading Skeletons:** Animated skeleton loaders provide a polished UI while waiting for API responses.
-- **Smart Components:** Modular structure with components autonomously fetching their required data.
-
-## API Endpoints
+### 2. Run the Frontend (Angular)
+...
+- **JSON-Driven Architecture:** The entire portfolio content is managed via a single `resume-data.json` file in the backend, separating content from code.
+- **Dynamic Skill Categorization:** Skills are grouped by categories (Programming, Web, Database, etc.) for better readability.
+- **Professional Timeline:** A visual vertical timeline representing over 15 years of career progression.
+- **Certification & Awards Tracking:** Dedicated sections for professional certifications (with verification links) and industry recognition.
+...
+- **API Endpoints**
 
 - `GET /api/profile` - Basic identity information.
-- `GET /api/about` - Summary and technical skills.
-- `GET /api/experience` - Professional timeline.
-- `GET /api/projects` - Featured work and portfolio items.
+- `GET /api/about` - Summary and high-level technical skills.
+- `GET /api/experience` - Full career timeline (Senior Architect to Associate).
+- `GET /api/projects` - Key project portfolio.
+- `GET /api/certifications` - Professional credentials with verification links.
+- `GET /api/awards` - Honors and recognition (CheerBoard nominations).
+- `GET /api/skill-categories` - Grouped technical expertise.
 - `GET /api/hobbies` - Personal interests.
 - `GET /api/contact` - Communication links.
 - `GET /api/cover-letter` - Cover letter content.
+
