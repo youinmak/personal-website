@@ -15,7 +15,7 @@
   </div>
 
   <div class="mt-8 flex flex-wrap gap-4">
-    <a *ngFor="let link of profile.socialLinks" [href]="link.url" target="_blank" class="text-xs font-bold px-3 py-1 bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-md hover:border-blue-500 transition-colors">
+    <a *ngFor="let link of profile.socialLinks" [href]="link.url" [target]="link.url === '#' ? '_self' : '_blank'" class="text-xs font-bold px-3 py-1 bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-md hover:border-blue-500 transition-colors" [class.pointer-events-none]="link.url === '#'">
       {{ link.platform }}
     </a>
   </div>

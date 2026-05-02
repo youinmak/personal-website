@@ -6,8 +6,8 @@ A professional, clean, and responsive personal portfolio website built with a Sp
 - **Backend:** Spring Boot 3.2.4 (Java 17, Maven)
 - **Frontend:** Angular 19 (SPA) with Tailwind CSS 3
 - **Architecture:** 
-  - Backend: Controller -> Service -> DTO (Config-driven via `DataService.java`)
-  - Frontend: Modular, component-based SPA (`SidebarComponent`, `ResumeComponent`, `CoverLetterComponent`).
+  - Backend: Controller -> Service -> DTO (Externalized via `resume-data.json`)
+  - Frontend: Modular, component-based SPA with dedicated sections for Experience, Skills, Certifications, and Awards.
 
 ## Building and Running
 
@@ -25,18 +25,19 @@ A professional, clean, and responsive personal portfolio website built with a Sp
 ## Development Conventions
 - **Backend:** 
   - Use Java 17 records for DTOs.
-  - Controllers should be cross-origin enabled for development (`localhost:4200`).
+  - Data is managed in `src/main/resources/resume-data.json` and loaded via `DataService.java` using Jackson.
+  - Controllers are cross-origin enabled for development (`localhost:4200`).
   - Layered architecture (Controller -> Service -> DTO).
 - **Frontend:**
   - Standalone components (Angular 19 default).
   - Tailwind CSS 3 for styling (configured in `tailwind.config.js`, imported in `styles.css`).
-  - **Smart Components:** Components inject `ApiService` directly to fetch the specific data they need, rather than relying on `@Input` passing from the root component.
+  - **Data Fetching:** Smart Components use `ApiService` to fetch specific data streams (Experience, SkillCategories, Certifications, etc.).
   - Support for dark/light mode via Tailwind's `dark:` classes and a root `[class.dark]` toggle.
-  - **Loading States:** Use the reusable `LoadingSkeletonComponent` with `ng-template` to show shimmering placeholders while `Observable` data streams are pending.
-  - **PDF Generation:** Use `html2canvas` and `jspdf` to convert the `pdf-container` into a downloadable A4-sized PDF, respecting dark/light mode backgrounds.
+  - **Loading States:** Use the reusable `LoadingSkeletonComponent` with `ng-template` to show shimmering placeholders.
+  - **PDF Generation:** Use `html2canvas` and `jspdf` to convert the `pdf-container` into a downloadable A4-sized PDF.
 
 ## Project Structure
-- `/backend`: Contains Java source code and Maven configuration.
+- `/backend`: Contains Java source code, Maven configuration, and `resume-data.json`.
 - `/frontend`: Contains Angular source code, Tailwind configuration, and npm scripts.
 - `README.md`: High-level instructions for setup, features, and execution.
 - `resources/`: Location for raw assets, such as the source PDF resume.

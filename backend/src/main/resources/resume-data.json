@@ -1,0 +1,138 @@
+{
+  "profile": {
+    "name": "Makrand P. Thorat",
+    "role": "Senior Software Developer & Architect",
+    "tagline": "15+ years of experience in analysis, design and development of various J2EE applications, specializing in e-commerce on the Hybris Platform.",
+    "location": "Pune, India",
+    "phone": "+91 90 2155 3444",
+    "socialLinks": [
+      { "platform": "LinkedIn", "url": "https://www.linkedin.com/in/makrand-thorat-2215111b/" },
+      { "platform": "GitHub", "url": "https://github.com/youinmak" }
+    ],
+    "qualifications": [
+      { "examination": "B. Tech.", "institute": "College Of Engineering Pune(COEP)", "academicYear": "2006-10", "score": "6.9/10 CGPA" },
+      { "examination": "Higher Secondary School", "institute": "Yashwantrao Chavan College of Science, Karad", "academicYear": "2005-06", "score": "84.50%" },
+      { "examination": "Secondary School", "institute": "Vidhyarthi Vikas Vidhyalay", "academicYear": "2003-04", "score": "83.73%" }
+    ]
+  },
+  "about": {
+    "summary": "Senior Software Architect with over 15 years of expertise in designing and delivering high-scale enterprise e-commerce platforms, particularly within the SAP Commerce Cloud (Hybris) ecosystem. Expert in cloud-native microservices architecture using Java, Spring Boot, AWS, and Kafka. A pioneer in AI-driven development, integrating generative AI agents like Claude Code and GitHub Copilot to optimize engineering workflows. Proven track record of leading architectural vision, technical solutioning, and mentoring high-performing, distributed engineering teams for global clients like Amway, Tata CLiQ, and Changi Airport Group.",
+    "skills": ["Java", "Spring Boot", "SAP Hybris", "Microservices", "AWS", "Angular", "ReactJS", "Kafka", "SQL"]
+  },
+  "experience": [
+    {
+      "company": "Nagarro Enterprise Services Private Limited",
+      "position": "Senior Software Architect",
+      "duration": "May 2021 - Present",
+      "location": "Pune, India",
+      "description": "Leading architecture and delivery across critical commerce modules (Cart, Checkout, POS, Payments, OMS). Designing cloud‑native microservices using Java, Spring, AWS, and Kafka. Integrated API gateways, observability tools, and generative AI chat platforms. Mentorship and upskilling teams."
+    },
+    {
+      "company": "Nagarro Enterprise Services Private Limited",
+      "position": "Senior Staff Engineer",
+      "duration": "May 2021 - Apr 2023",
+      "location": "Pune, India",
+      "description": "Solutioned and architected Marketplace commerce implementations using SAP Hybris OCC. Integrated with Kafka, Elastic, CRM, and payment providers. Handled end-to-end commerce flows from PDP to Returns/Refunds."
+    },
+    {
+      "company": "BORN Group",
+      "position": "Senior Software Engineer",
+      "duration": "Aug 2017 - May 2021",
+      "location": "Pune, India",
+      "description": "Designed and built a New Generation Marketplace platform for a major Singapore Airport Group. Integrated SAP Commerce Cloud with Mirakl, Fluent, and Adobe AEM. Led multiple project modules and customized promotions/payments."
+    },
+    {
+      "company": "Ecommera (Isobar)",
+      "position": "Senior Software Engineer",
+      "duration": "Mar 2017 - Aug 2017",
+      "location": "Pune, India",
+      "description": "Developed B2C SAP Commerce sites for fashion brands in Japan. Integrated Hybris with Adobe AEM and handled complex checkout customizations for Apparel and Furniture."
+    },
+    {
+      "company": "Infosys",
+      "position": "Technology Analyst",
+      "duration": "Sep 2010 - March 2017",
+      "location": "Pune, India",
+      "description": "Architected SAP Hybris migrations and provided support for B2B sites. Worked on CMS, Backoffice, and OMS implementations for healthcare and telecom clients."
+    }
+  ],
+  "projects": [
+    {
+      "title": "Amway ANA Development and Consulting",
+      "description": "Design and architecture for Amway's e-commerce platform including Cart, Checkout, OMS, and payment integrations. Infrastructure implemented using AWS (DynamoDB, ECS, Lambda).",
+      "techStack": ["Java", "Spring Cloud", "Angular", "AWS", "Kafka"],
+      "link": "#"
+    },
+    {
+      "title": "Tata CLiQ/Luxury Development",
+      "description": "Omnichannel e-commerce platform integration. Designed end-to-end commerce flows across PDP, cart, promotions, and payments using SAP Hybris OCC.",
+      "techStack": ["SAP Hybris", "ReactJS", "Elastic", "Solr", "Microservices"],
+      "link": "#"
+    },
+    {
+      "title": "iShopChangi Marketplace platform",
+      "description": "Digital transformation project designing a new generation marketplace using SAP commerce cloud, Mirakl, and Adobe AEM.",
+      "techStack": ["SAP Commerce Cloud", "AEM", "React", "REST APIs"],
+      "link": "#"
+    },
+    {
+      "title": "Adastria B2C (Japan)",
+      "description": "E-commerce portal development integrating Hybris commerce engine with Adobe Experience Manager CMS. Handled core DB integration and custom checkouts.",
+      "techStack": ["Hybris", "AEM", "Zeta Search"],
+      "link": "#"
+    }
+  ],
+  "languages": [
+    { "name": "English", "level": "Fluent" },
+    { "name": "Hindi", "level": "Native" },
+    { "name": "Marathi", "level": "Native" }
+  ],
+  "hobbies": [
+    { "name": "Open Source", "description": "Exploring and contributing to new technologies." },
+    { "name": "Mentorship", "description": "Guiding junior developers and conducting training sessions." }
+  ],
+  "certifications": [
+    { "title": "Microsoft GitHub Copilot Certification", "issuer": "Microsoft", "date": "2024", "link": "https://learn.microsoft.com/en-gb/users/makarandthorat-1777/credentials/881898660c4a58e5" },
+    { "title": "Oracle Certified Professional Java SE 11 Programmer", "issuer": "Oracle", "date": "2021", "link": "https://www.credly.com/badges/7a91a047-aebb-47a1-b249-837b40788def" },
+    { "title": "Pivotal Certified Spring Professional V4.3", "issuer": "Pivotal", "date": "2018", "link": "https://bcert.me/bc/html/show-badge.html?b=uiozkub" },
+    { "title": "SAP Certified Development Professional - SAP Hybris Commerce 6.2/1905 Developer", "issuer": "SAP", "date": "2019", "link": "https://www.credly.com/badges/76a5c1ea-abb9-4aeb-bd66-36b90623c19a" },
+    { "title": "SAP Certified Product Support Specialist - SAP Hybris Commerce 6.0/1811", "issuer": "SAP", "date": "2019", "link": "https://www.credly.com/badges/96904eac-512d-48f1-84dc-c158d7407cfe" },
+    { "title": "SAP Hybris Certified Core V5 Developer", "issuer": "SAP", "date": "2015", "link": "#" },
+    { "title": "Professional Java SE 8 Programmer", "issuer": "Oracle", "date": "2016", "link": "https://www.credly.com/badges/e140603c-7338-4595-bfee-431e240c7034" },
+    { "title": "Oracle Certified Associate Java SE 8 Programmer", "issuer": "Oracle", "date": "2016", "link": "https://www.credly.com/badges/afcefa6d-0cd5-41d0-a050-9fb5a7b74a99" },
+    { "title": "SAP Certified Application Associate - SAP Commerce Cloud Business User", "issuer": "SAP", "date": "2021", "link": "https://www.credly.com/badges/dea4f850-6e1e-43b6-8e33-f13231b2516a" }
+  ],
+  "awards": [
+    { "title": "CheerBoard nomination", "date": "January 2026" },
+    { "title": "CheerBoard nomination", "date": "February 2026" },
+    { "title": "CheerBoard nomination", "date": "May 2025" },
+    { "title": "CheerBoard nomination", "date": "March 2024" },
+    { "title": "CheerBoard nomination", "date": "October 2023" }
+  ],
+  "skillCategories": [
+    { "category": "Programming Languages", "skills": ["Java", "Groovy", "C", "JavaScript"] },
+    { "category": "Web Technologies", "skills": ["CSS3", "jQuery", "HTML5", "AJAX", "XML", "Angular", "React"] },
+    { "category": "APIs & Middleware", "skills": ["JDBC", "JPA", "Hibernate", "Spring Data", "REST", "JSON", "SOAP", "ActiveMQ", "Apache Kafka"] },
+    { "category": "Database", "skills": ["Oracle 11g", "PL-SQL", "MySQL", "HSQLDB", "SQLServer"] },
+    { "category": "Tools & Platforms", "skills": ["ActiveMQ", "Amazon Q Developer", "Bloomreach", "Claude Code", "Confluence", "DataDome", "Docker", "Dynatrace", "Elastic/OpenSearch", "Grafana", "Jenkins", "JIRA", "JMeter", "Kibana", "Kiro", "Postman", "Qualtrics", "ServiceNow", "Slack", "SonarQube", "Splunk", "UML", "Draw.io", "IntelliJ IDEA", "Eclipse", "Git", "Maven", "AWS", "Apache Solr", "Gradle"] }
+  ],
+  "contact": {
+    "email": "makarand.coep@gmail.com",
+    "linkedIn": "https://www.linkedin.com/in/makrand-thorat-2215111b/",
+    "github": "https://github.com/youinmak"
+  },
+  "coverLetter": {
+    "date": "May 1, 2026",
+    "recipientName": "Hiring Manager",
+    "recipientTitle": "Director of Engineering",
+    "companyName": "Target Company",
+    "subject": "Application for Senior Software Architect Position",
+    "bodyParagraphs": [
+      "I am writing to express my strong interest in the Senior Software Architect position. With over 15 years of experience in architecting, developing, and deploying high-performance enterprise e-commerce applications, I am confident in my ability to drive technical excellence and innovation within your organization.",
+      "In my current role as a Senior Software Architect at Nagarro, I have led the end-to-end delivery of complex commerce modules for global leaders like Amway. My expertise lies in designing scalable, cloud-native microservices using Java, Spring Cloud, and AWS, and seamlessly integrating them with platforms like SAP Commerce Cloud (Hybris). Recently, I have spearheaded the adoption of Generative AI tools (Claude Code, Amazon Q Developer) into our development lifecycle, significantly accelerating time-to-market while maintaining architectural integrity.",
+      "I am passionate about building resilient systems and cultivating a culture of technical mentorship. My deep background in e-commerce—from Cart and Checkout to OMS and complex integrations—complements my commitment to clean architecture and modern DevOps practices. I thrive in leading distributed teams through the challenges of digital transformation and high-scale migrations.",
+      "Thank you for considering my application. I have attached my resume and look forward to discussing how my technical leadership and deep architectural background align with your company's strategic goals."
+    ],
+    "closing": "Best regards,"
+  }
+}

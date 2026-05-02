@@ -1,10 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ApiService } from '../../services/api.service';
-import { About, Experience, Project, Hobby } from '../../models/data.models';
+import { About, Experience, Project, Hobby, Certification, Award, SkillCategory } from '../../models/data.models';
 import { Observable } from 'rxjs';
 import { LoadingSkeletonComponent } from '../loading-skeleton/loading-skeleton.component';
 
+/**
+ * Smart Component responsible for rendering the main resume view.
+ * It autonomously fetches data for experience, skills, certifications, and awards.
+ */
 @Component({
   selector: 'app-resume',
   standalone: true,
@@ -16,13 +20,23 @@ export class ResumeComponent implements OnInit {
   experience$!: Observable<Experience[]>;
   projects$!: Observable<Project[]>;
   hobbies$!: Observable<Hobby[]>;
+  certifications$!: Observable<Certification[]>;
+  awards$!: Observable<Award[]>;
+  skillCategories$!: Observable<SkillCategory[]>;
 
   constructor(private apiService: ApiService) {}
 
+  /**
+   * Initializes component state by creating data streams from the ApiService.
+   * Async pipes in the template will handle subscription and data rendering.
+   */
   ngOnInit() {
     this.about$ = this.apiService.getAbout();
     this.experience$ = this.apiService.getExperience();
     this.projects$ = this.apiService.getProjects();
     this.hobbies$ = this.apiService.getHobbies();
+    this.certifications$ = this.apiService.getCertifications();
+    this.awards$ = this.apiService.getAwards();
+    this.skillCategories$ = this.apiService.getSkillCategories();
   }
 }
