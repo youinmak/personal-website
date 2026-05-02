@@ -1,10 +1,11 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { ResumeComponent } from './components/resume/resume.component';
 import { CoverLetterComponent } from './components/cover-letter/cover-letter.component';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
+import { ThemeService } from './services/theme.service';
 
 @Component({
   selector: 'app-root',
@@ -19,6 +20,8 @@ export class AppComponent implements OnInit {
   today = new Date();
   viewMode: 'resume' | 'cover-letter' = 'resume';
 
+  themeService = inject(ThemeService);
+
   @ViewChild('pdfContainer', { static: false }) pdfContainer!: ElementRef;
 
   ngOnInit(): void {
@@ -29,6 +32,10 @@ export class AppComponent implements OnInit {
 
   toggleDarkMode(): void {
     this.isDarkMode = !this.isDarkMode;
+  }
+
+  toggleDevMode(): void {
+    this.themeService.toggleDevMode();
   }
 
   async downloadPDF() {
