@@ -11,7 +11,9 @@ import { About, Contact, CoverLetter, Experience, Hobby, Language, Profile, Proj
   providedIn: 'root'
 })
 export class ApiService {
-  private apiUrl = 'http://localhost:8080/api';
+  private apiUrl = window.location.hostname === 'localhost' 
+    ? 'http://localhost:8080/api' 
+    : 'https://personal-website-backend-mfnc4laiaa-uc.a.run.app/api';
 
   constructor(private http: HttpClient) {}
 

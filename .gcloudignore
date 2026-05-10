@@ -1,0 +1,9 @@
+.git
+.gitignore
+.angular
+**/node_modules/
+**/target/
+infra/
+.terraform/
+terraform.tfstate*
+*.tfvars

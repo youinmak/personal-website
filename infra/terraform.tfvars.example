@@ -1,0 +1,4 @@
+project_id    = "your-gcp-project-id"
+region        = "us-central1"
+service_name  = "personal-website-backend"
+repository_id = "personal-website"
