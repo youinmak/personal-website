@@ -48,6 +48,9 @@ resource "google_cloud_run_v2_service" "backend" {
   ingress  = "INGRESS_TRAFFIC_ALL" # Allow public access
 
   template {
+    # Force the use of the default Compute Service Account to clear stale identity references
+    service_account = "${data.google_project.project.number}-compute@developer.gserviceaccount.com"
+
     containers {
       # Placeholder image for initial creation. 
       # Replaced by Cloud Build with the actual app during deployment.
@@ -60,6 +63,14 @@ resource "google_cloud_run_v2_service" "backend" {
           cpu    = "1"
           memory = "512Mi" # Baseline requirement for Spring Boot
         }
+      }
+      env {
+        name  = "CORS_ALLOWED_ORIGINS"
+        value = "http://localhost:4200,https://${var.project_id}.web.app,https://${var.project_id}.firebaseapp.com"
+      }
+      env {
+        name  = "SPRING_PROFILES_ACTIVE"
+        value = "prod"
       }
     }
     

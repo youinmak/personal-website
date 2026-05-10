@@ -15,11 +15,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/api")
-@CrossOrigin(origins = {
-    "http://localhost:4200", 
-    "https://project-10c1b2d6-f9e9-46f3-8c6.web.app", 
-    "https://project-10c1b2d6-f9e9-46f3-8c6.firebaseapp.com"
-})
+@CrossOrigin(origins = "${cors.allowed-origins:http://localhost:4200}")
 public class ApiController {
 
     private final DataService dataService;

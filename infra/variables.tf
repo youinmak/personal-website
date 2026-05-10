@@ -1,6 +1,11 @@
 variable "project_id" {
   description = "The unique ID of your Google Cloud Project."
   type        = string
+
+  validation {
+    condition     = length(var.project_id) > 0
+    error_message = "The project_id variable must not be empty."
+  }
 }
 
 variable "region" {
