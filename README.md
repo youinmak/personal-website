@@ -2,6 +2,16 @@
 
 A professional, clean, and responsive personal portfolio website showcasing experience, projects, and skills. This project features a Spring Boot REST API backend and a modular Angular SPA frontend styled with Tailwind CSS 3.
 
+## Deployment (Google Cloud Platform)
+
+This site is fully automated for deployment on GCP within the **Always Free** tier using:
+*   **Cloud Run** (Backend API)
+*   **Firebase Hosting** (Angular Frontend)
+*   **Cloud Build** (CI/CD Pipeline)
+*   **Terraform** (Infrastructure as Code)
+
+For detailed deployment and maintenance instructions, see [GEMINI.md](./GEMINI.md) or the [infra/README.md](./infra/README.md).
+
 ## Project Structure
 
 ```text
