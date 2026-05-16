@@ -60,7 +60,11 @@ public class DataService {
 
     /** @return Flat list of technical tools. */
     public List<String> getTools() {
-        return resumeData.tools();
+        return resumeData.skillCategories().stream()
+                .filter(c -> "Tools & Platforms".equals(c.category()))
+                .findFirst()
+                .map(SkillCategory::skills)
+                .orElse(List.of());
     }
 
     /** @return List of spoken languages. */

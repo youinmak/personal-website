@@ -1,0 +1,67 @@
+# Google Cloud Build configuration for Personal Website
+# This pipeline automates the backend container build, Cloud Run deployment, 
+# and Angular frontend build and Firebase Hosting deployment.
+
+steps:
+  # --- Backend Build & Deploy ---
+  
+  # 1. Build Backend Docker Image using the Dockerfile in /backend
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', '${_REGION}-docker.pkg.dev/${PROJECT_ID}/${_REPOSITORY_ID}/backend:latest', './backend']
+    id: 'build-backend'
+
+  # 2. Push Backend Docker Image to Artifact Registry
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', '${_REGION}-docker.pkg.dev/${PROJECT_ID}/${_REPOSITORY_ID}/backend:latest']
+    id: 'push-backend-latest'
+
+  # 3. Deploy Backend to Cloud Run
+  # Note: This will overwrite the placeholder image used during initial Terraform apply
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: gcloud
+    args:
+      - 'run'
+      - 'deploy'
+      - '${_SERVICE_NAME}'
+      - '--image'
+      - '${_REGION}-docker.pkg.dev/${PROJECT_ID}/${_REPOSITORY_ID}/backend:latest'
+      - '--region'
+      - '${_REGION}'
+      - '--platform'
+      - 'managed'
+      - '--allow-unauthenticated'
+    id: 'deploy-backend'
+
+  # --- Frontend Build & Deploy ---
+
+  # 4. Install Frontend Dependencies (Node.js)
+  - name: 'node:20'
+    entrypoint: npm
+    args: ['install']
+    dir: 'frontend'
+    id: 'install-frontend'
+
+  # 5. Build Frontend (Production build)
+  - name: 'node:20'
+    entrypoint: npm
+    args: ['run', 'build', '--', '--configuration=production']
+    dir: 'frontend'
+    id: 'build-frontend'
+
+  # 6. Deploy to Firebase Hosting using the Firebase CLI
+  - name: 'node:20'
+    entrypoint: 'npx'
+    args: ['firebase-tools', 'deploy', '--only', 'hosting', '--project', '${PROJECT_ID}', '--non-interactive']
+    id: 'deploy-frontend'
+
+substitutions:
+  _REGION: us-central1
+  _REPOSITORY_ID: personal-website
+  _SERVICE_NAME: personal-website-backend
+
+images:
+  - '${_REGION}-docker.pkg.dev/${PROJECT_ID}/${_REPOSITORY_ID}/backend:latest'
+
+options:
+  # Use Cloud Logging for build logs
+  logging: CLOUD_LOGGING_ONLY

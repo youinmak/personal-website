@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { About, Contact, CoverLetter, Experience, Hobby, Language, Profile, Project, Certification, Award, SkillCategory } from '../models/data.models';
 
+import { environment } from '../../environments/environment';
+
 /**
  * Service to interact with the Spring Boot Backend API.
  * Provides methods to fetch all portfolio-related data.
@@ -11,7 +13,7 @@ import { About, Contact, CoverLetter, Experience, Hobby, Language, Profile, Proj
   providedIn: 'root'
 })
 export class ApiService {
-  private apiUrl = 'http://localhost:8080/api';
+  private apiUrl = environment.apiUrl;
 
   constructor(private http: HttpClient) {}
 

@@ -1,41 +1,46 @@
-# --- General ---
+# --- OS Junk ---
 .DS_Store
 .AppleDouble
 .LSOverride
 Thumbs.db
-*.log
-*.tmp
-*.bak
-*.swp
+
+# --- Editor / IDE ---
 .vscode/
 .idea/
 *.iml
+*.swp
+*.bak
+
+# --- Logs & Temps ---
+*.log
+*.tmp
 
 # --- Backend (Spring Boot / Maven) ---
-backend/target/
-backend/.mvn/
-backend/mvnw
-backend/mvnw.cmd
-backend/.settings/
-backend/.classpath
-backend/.project
-backend/.factorypath
+**/target/
+**/.mvn/
+# Note: mvnw and mvnw.cmd are intentionally tracked for portable builds
 
 # --- Frontend (Angular / Node) ---
-frontend/node_modules/
-frontend/dist/
-frontend/.angular/
+**/node_modules/
+**/dist/
+**/.angular/
 frontend/npm-debug.log*
 frontend/yarn-debug.log*
 frontend/yarn-error.log*
-frontend/.env
-frontend/.env.local
-frontend/.env.development.local
-frontend/.env.test.local
-frontend/.env.production.local
-frontend/coverage/
 
-resources/*
-# --- Documentation ---
-# Keep GEMINI.md for context, but ignore other generated plans if needed
-# plans/ 
+# --- Environments & Secrets ---
+**/.env
+**/.env.*
+!**/.env.example
+infra/*.tfvars
+infra/*.tfvars.json
+
+# --- Infrastructure (Terraform) ---
+**/.terraform/
+infra/.terraform.lock.hcl
+infra/terraform.tfstate
+infra/terraform.tfstate.backup
+
+# --- GCP / Cloud Build ---
+cloudbuild-logs.txt
+# Note: .gcloudignore is intentionally tracked to maintain build consistency
