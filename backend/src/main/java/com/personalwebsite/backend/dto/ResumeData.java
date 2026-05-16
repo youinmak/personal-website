@@ -11,6 +11,7 @@ public record ResumeData(
     About about,
     List<Experience> experience,
     List<Project> projects,
+    List<String> tools,
     List<Language> languages,
     List<Hobby> hobbies,
     List<Certification> certifications,

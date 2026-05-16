@@ -82,6 +82,9 @@
       "link": "#"
     }
   ],
+  "tools": [
+    "Amazon Q Developer", "Bloomreach", "Codex", "Claude Code", "Confluence", "DataDome", "Docker", "Dynatrace", "Elastic/OpenSearch", "Github Copilot", "Google Code Assist/Gemini CLI", "Grafana", "Jenkins", "JIRA", "JMeter", "Kibana", "Kiro", "Postman", "Qualtrics", "ServiceNow", "Slack", "SonarQube", "Splunk", "UML", "Draw.io", "IntelliJ IDEA", "Eclipse", "Git", "Maven", "AWS", "Solr", "Gradle"
+  ],
   "languages": [
     { "name": "English", "level": "Fluent" },
     { "name": "Hindi", "level": "Native" },
@@ -114,7 +117,7 @@
     { "category": "Web Technologies", "skills": ["CSS3", "jQuery", "HTML5", "AJAX", "XML", "Angular", "React"] },
     { "category": "APIs & Middleware", "skills": ["JDBC", "JPA", "Hibernate", "Spring Data", "REST", "JSON", "SOAP", "ActiveMQ", "Apache Kafka"] },
     { "category": "Database", "skills": ["Oracle 11g", "PL-SQL", "MySQL", "HSQLDB", "SQLServer"] },
-    { "category": "Tools & Platforms", "skills": ["ActiveMQ", "Amazon Q Developer", "Bloomreach", "Claude Code", "Confluence", "DataDome", "Docker", "Dynatrace", "Elastic/OpenSearch", "Grafana", "Jenkins", "JIRA", "JMeter", "Kibana", "Kiro", "Postman", "Qualtrics", "ServiceNow", "Slack", "SonarQube", "Splunk", "UML", "Draw.io", "IntelliJ IDEA", "Eclipse", "Git", "Maven", "AWS", "Apache Solr", "Gradle"] }
+    { "category": "Tools & Platforms", "skills": ["Amazon Q Developer", "Bloomreach", "Codex", "Claude Code", "Confluence", "DataDome", "Docker", "Dynatrace", "Elastic/OpenSearch", "Github Copilot", "Google Code Assist/Gemini CLI", "Grafana", "Jenkins", "JIRA", "JMeter", "Kibana", "Kiro", "Postman", "Qualtrics", "ServiceNow", "Slack", "SonarQube", "Splunk", "UML", "Draw.io", "IntelliJ IDEA", "Eclipse", "Git", "Maven", "AWS", "Solr", "Gradle"] }
   ],
   "contact": {
     "email": "makarand.coep@gmail.com",

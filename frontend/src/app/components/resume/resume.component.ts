@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ApiService } from '../../services/api.service';
-import { About, Experience, Project, Hobby, Certification, Award, SkillCategory } from '../../models/data.models';
+import { About, Experience, Project, Hobby, Certification, Award, SkillCategory, Language } from '../../models/data.models';
 import { Observable } from 'rxjs';
 import { LoadingSkeletonComponent } from '../loading-skeleton/loading-skeleton.component';
+import { ThemeService } from '../../services/theme.service';
 
 /**
  * Smart Component responsible for rendering the main resume view.
@@ -23,6 +24,10 @@ export class ResumeComponent implements OnInit {
   certifications$!: Observable<Certification[]>;
   awards$!: Observable<Award[]>;
   skillCategories$!: Observable<SkillCategory[]>;
+  tools$!: Observable<string[]>;
+  languages$!: Observable<Language[]>;
+
+  themeService = inject(ThemeService);
 
   constructor(private apiService: ApiService) {}
 
@@ -38,5 +43,7 @@ export class ResumeComponent implements OnInit {
     this.certifications$ = this.apiService.getCertifications();
     this.awards$ = this.apiService.getAwards();
     this.skillCategories$ = this.apiService.getSkillCategories();
+    this.tools$ = this.apiService.getTools();
+    this.languages$ = this.apiService.getLanguages();
   }
 }

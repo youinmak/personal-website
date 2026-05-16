@@ -1,9 +1,10 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ApiService } from '../../services/api.service';
 import { Profile, Contact, About, Language } from '../../models/data.models';
 import { Observable, combineLatest, map } from 'rxjs';
 import { LoadingSkeletonComponent } from '../loading-skeleton/loading-skeleton.component';
+import { ThemeService } from '../../services/theme.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -20,6 +21,8 @@ export class SidebarComponent implements OnInit {
   about$!: Observable<About>;
   tools$!: Observable<string[]>;
   languages$!: Observable<Language[]>;
+
+  themeService = inject(ThemeService);
 
   constructor(private apiService: ApiService) {}
 

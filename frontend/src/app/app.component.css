@@ -1,0 +1,44 @@
+/* Developer Mode Overrides */
+:host-context(.dev-mode) {
+  font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+}
+
+:host-context(.dev-mode) #pdf-container {
+  border-radius: 0;
+  border: 1px solid #334155;
+}
+
+:host-context(.dev-mode) aside {
+  background-color: #0f172a;
+  border-right: 1px solid #1e293b;
+}
+
+:host-context(.dev-mode) main {
+  background-color: #010409;
+}
+
+:host-context(.dev-mode) .text-blue-600 {
+  color: #79c0ff !important; /* GitHub blue */
+}
+
+:host-context(.dev-mode) .bg-blue-600 {
+  background-color: #238636 !important; /* GitHub green for actions */
+}
+
+/* Custom Scrollbar for Dev Mode */
+:host-context(.dev-mode) ::-webkit-scrollbar {
+  width: 8px;
+}
+
+:host-context(.dev-mode) ::-webkit-scrollbar-track {
+  background: #010409;
+}
+
+:host-context(.dev-mode) ::-webkit-scrollbar-thumb {
+  background: #30363d;
+  border-radius: 4px;
+}
+
+:host-context(.dev-mode) ::-webkit-scrollbar-thumb:hover {
+  background: #484f58;
+}

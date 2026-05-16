@@ -4,7 +4,7 @@
     <ng-container *ngIf="about$ | async as about; else summaryLoading">
       <h2 class="text-2xl font-black mb-6 flex items-center">
         <span class="w-8 h-1 bg-blue-600 mr-4"></span>
-        Profile
+        {{ themeService.isDevMode() ? 'class Profile {' : 'Profile' }}
       </h2>
       <p class="text-lg leading-relaxed text-slate-600 dark:text-slate-400 font-medium">
         {{ about.summary }}
@@ -15,27 +15,87 @@
     </ng-template>
   </section>
 
-  <!-- Skills -->
+  <!-- Bento Grid Dashboard -->
   <section>
-    <ng-container *ngIf="skillCategories$ | async as categories; else skillsLoading">
-      <h2 class="text-2xl font-black mb-8 flex items-center">
-        <span class="w-8 h-1 bg-blue-600 mr-4"></span>
-        Expertise
-      </h2>
-      <div class="grid gap-6 md:grid-cols-2">
-        <div *ngFor="let cat of categories" class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/30 border border-slate-200 dark:border-slate-800">
-          <h3 class="text-sm font-black uppercase tracking-widest text-blue-600 dark:text-blue-400 mb-4">{{ cat.category }}</h3>
-          <div class="flex flex-wrap gap-2">
-            <span *ngFor="let skill of cat.skills" class="px-3 py-1 bg-white dark:bg-slate-900 rounded-full text-xs font-bold text-slate-600 dark:text-slate-300 border border-slate-100 dark:border-slate-700 shadow-sm">
-              {{ skill }}
-            </span>
+    <h2 class="text-2xl font-black mb-8 flex items-center">
+      <span class="w-8 h-1 bg-blue-600 mr-4"></span>
+      {{ themeService.isDevMode() ? 'get insights(): Stats {' : 'Insights & Expertise' }}
+    </h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-4 auto-rows-min" [class.border-slate-800]="themeService.isDevMode()">
+      <!-- Card 1: Experience Stats (1x1) -->
+      <div class="md:col-span-1 p-6 rounded-3xl bg-blue-600 text-white flex flex-col justify-center items-center text-center shadow-xl shadow-blue-500/20">
+        <span class="text-4xl font-black mb-1">15+</span>
+        <span class="text-xs font-bold uppercase tracking-widest opacity-80">Years Experience</span>
+      </div>
+
+      <!-- Card 2: Tech Stack / Skill Categories (2x2) -->
+      <div class="md:col-span-2 md:row-span-2 p-6 rounded-3xl bg-slate-900 text-white border border-slate-800 flex flex-col overflow-hidden group">
+        <div class="flex justify-between items-center mb-6">
+          <h3 class="text-sm font-black uppercase tracking-widest text-blue-400">
+            {{ themeService.isDevMode() ? 'import { stack } from "@core"' : 'Core Stack' }}
+          </h3>
+          <div class="flex gap-1">
+            <div class="w-2 h-2 rounded-full bg-red-500/50"></div>
+            <div class="w-2 h-2 rounded-full bg-yellow-500/50"></div>
+            <div class="w-2 h-2 rounded-full bg-green-500/50"></div>
+          </div>
+        </div>
+        <div class="space-y-4 overflow-y-auto pr-2 custom-scrollbar">
+          <div *ngFor="let cat of (skillCategories$ | async)" class="space-y-2">
+            <h4 class="text-[10px] font-black text-slate-500 uppercase tracking-tighter">
+              {{ themeService.isDevMode() ? '// ' + cat.category : cat.category }}
+            </h4>
+            <div class="flex flex-wrap gap-1.5">
+              <span *ngFor="let skill of cat.skills" class="text-[11px] font-bold px-2 py-0.5 rounded-md bg-slate-800 border border-slate-700 text-slate-300">
+                {{ skill }}
+              </span>
+            </div>
           </div>
         </div>
       </div>
-    </ng-container>
-    <ng-template #skillsLoading>
-      <app-loading-skeleton type="expertise"></app-loading-skeleton>
-    </ng-template>
+
+      <!-- Card 3: Awards & Recognition (2x1) -->
+      <div class="md:col-span-2 p-6 rounded-3xl bg-orange-50 dark:bg-orange-950/20 border border-orange-100 dark:border-orange-900/30 flex flex-col justify-between group">
+        <h3 class="text-sm font-black uppercase tracking-widest text-orange-600 dark:text-orange-400 mb-4">Recognition</h3>
+        <div class="flex flex-wrap gap-2">
+          <div *ngFor="let award of (awards$ | async)" class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white dark:bg-slate-900 border border-orange-100 dark:border-orange-800/50 shadow-sm">
+            <svg class="w-3 h-3 text-orange-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <span class="text-[10px] font-black">{{ award.title }}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4: Top Languages (1x1) -->
+      <div class="md:col-span-1 p-6 rounded-3xl bg-emerald-50 dark:bg-emerald-950/20 border border-emerald-100 dark:border-emerald-900/30 flex flex-col justify-center items-center text-center">
+        <h3 class="text-[10px] font-black uppercase tracking-widest text-emerald-600 dark:text-emerald-400 mb-2">Languages</h3>
+        <div class="space-y-1">
+          <div *ngFor="let lang of (languages$ | async)" class="text-xs font-black">
+            {{ lang.name }} <span class="text-[10px] opacity-50 font-medium">({{ lang.level }})</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 5: Github Activity Mock (2x1) -->
+      <div class="md:col-span-2 p-6 rounded-3xl bg-slate-50 dark:bg-slate-800/30 border border-slate-200 dark:border-slate-800 flex flex-col justify-between overflow-hidden">
+        <div class="flex justify-between items-center mb-4">
+          <h3 class="text-sm font-black uppercase tracking-widest text-slate-400">Activity</h3>
+          <a href="https://github.com/youinmak" target="_blank" class="text-[10px] font-black text-blue-600 hover:underline">View GitHub</a>
+        </div>
+        <div class="flex gap-1 items-end h-12">
+          <!-- Mock Heatmap -->
+          <div *ngFor="let i of [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]" 
+               [style.height.%]="20 + (i * 3) % 80" 
+               class="flex-1 rounded-sm bg-blue-500/20 group-hover:bg-blue-500 transition-colors"></div>
+        </div>
+      </div>
+
+      <!-- Card 6: Tools / Quick Links (1x1) -->
+      <div class="md:col-span-1 p-6 rounded-3xl bg-purple-50 dark:bg-purple-950/20 border border-purple-100 dark:border-purple-900/30 flex flex-col justify-center items-center text-center">
+        <svg class="w-6 h-6 text-purple-600 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>
+        <span class="text-[10px] font-black uppercase tracking-widest text-purple-600">30+ Tools</span>
+      </div>
+    </div>
   </section>
 
   <!-- Experience -->
@@ -43,13 +103,15 @@
     <ng-container *ngIf="experience$ | async as experiences; else expLoading">
       <h2 class="text-2xl font-black mb-8 flex items-center">
         <span class="w-8 h-1 bg-blue-600 mr-4"></span>
-        Experience
+        {{ themeService.isDevMode() ? 'async *getExperience() {' : 'Experience' }}
       </h2>
       <div class="space-y-12">
         <div *ngFor="let exp of experiences" class="group relative pl-8 before:absolute before:left-0 before:top-2 before:bottom-0 before:w-px before:bg-slate-200 dark:before:bg-slate-800 last:before:hidden">
           <div class="absolute left-[-4px] top-2 w-2 h-2 rounded-full bg-blue-600"></div>
           <div class="flex flex-col sm:flex-row sm:items-baseline justify-between mb-2">
-            <h3 class="text-xl font-black group-hover:text-blue-600 transition-colors">{{ exp.position }}</h3>
+            <h3 class="text-xl font-black group-hover:text-blue-600 transition-colors">
+              {{ themeService.isDevMode() ? 'yield new Position("' + exp.position + '")' : exp.position }}
+            </h3>
             <span class="text-sm font-bold text-slate-400 whitespace-nowrap">{{ exp.duration }}</span>
           </div>
           <div class="flex items-center text-blue-600 dark:text-blue-400 font-bold text-sm mb-4 uppercase tracking-wider">
@@ -71,7 +133,7 @@
     <ng-container *ngIf="certifications$ | async as certifications; else certLoading">
       <h2 class="text-2xl font-black mb-8 flex items-center">
         <span class="w-8 h-1 bg-blue-600 mr-4"></span>
-        Professional Certifications
+        {{ themeService.isDevMode() ? 'const certifications: Badge[] = [' : 'Professional Certifications' }}
       </h2>
       <div class="grid gap-4 sm:grid-cols-2">
         <a *ngFor="let cert of certifications" [href]="cert.link" [target]="cert.link === '#' ? '_self' : '_blank'" class="p-4 rounded-xl border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900/50 flex items-start gap-4 hover:border-blue-500 transition-colors group" [class.pointer-events-none]="cert.link === '#'">
@@ -98,7 +160,7 @@
     <ng-container *ngIf="projects$ | async as projects; else projLoading">
       <h2 class="text-2xl font-black mb-8 flex items-center">
         <span class="w-8 h-1 bg-blue-600 mr-4"></span>
-        Key Projects
+        {{ themeService.isDevMode() ? 'const projects = {' : 'Key Projects' }}
       </h2>
       <div class="grid gap-8">
         <div *ngFor="let project of projects" class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-800/30 border border-slate-200 dark:border-slate-800 hover:border-blue-500 dark:hover:border-blue-500 transition-all group">
@@ -122,36 +184,12 @@
     </ng-template>
   </section>
 
-  <!-- Awards & Recognition -->
-  <section>
-    <ng-container *ngIf="awards$ | async as awards; else awardsLoading">
-      <h2 class="text-2xl font-black mb-8 flex items-center">
-        <span class="w-8 h-1 bg-blue-600 mr-4"></span>
-        Recognition
-      </h2>
-      <div class="flex flex-wrap gap-4">
-        <div *ngFor="let award of awards" class="px-5 py-3 rounded-xl bg-orange-50 dark:bg-orange-900/10 border border-orange-100 dark:border-orange-900/20 flex items-center gap-3">
-          <span class="text-orange-500">
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5 2a1 1 0 011 1v1h1a1 1 0 010 2H6v1a1 1 0 01-2 0V6H3a1 1 0 010-2h1V3a1 1 0 011-1zm0 10a1 1 0 011 1v1h1a1 1 0 110 2H6v1a1 1 0 11-2 0v-1H3a1 1 0 110-2h1v-1a1 1 0 011-1zM12 2a1 1 0 01.967.744L14.146 7.2 17.5 9.134a1 1 0 010 1.732l-3.354 1.935-1.18 4.455a1 1 0 01-1.933 0L9.854 12.8 6.5 10.866a1 1 0 010-1.732l3.354-1.935 1.18-4.455A1 1 0 0112 2z" clip-rule="evenodd" /></svg>
-          </span>
-          <div>
-            <h3 class="text-sm font-black">{{ award.title }}</h3>
-            <p class="text-[10px] font-bold text-orange-600/60 uppercase tracking-widest">{{ award.date }}</p>
-          </div>
-        </div>
-      </div>
-    </ng-container>
-    <ng-template #awardsLoading>
-      <app-loading-skeleton type="hobbies"></app-loading-skeleton>
-    </ng-template>
-  </section>
-
   <!-- Hobbies -->
   <section>
     <ng-container *ngIf="hobbies$ | async as hobbies; else hobLoading">
       <h2 class="text-2xl font-black mb-8 flex items-center">
         <span class="w-8 h-1 bg-blue-600 mr-4"></span>
-        Interests
+        {{ themeService.isDevMode() ? '}' : 'Interests' }}
       </h2>
       <div class="flex flex-wrap gap-4">
         <div *ngFor="let hobby of hobbies" class="px-6 py-4 rounded-xl bg-slate-50 dark:bg-slate-800/30 border border-slate-200 dark:border-slate-800">
