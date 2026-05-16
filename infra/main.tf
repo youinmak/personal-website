@@ -66,7 +66,7 @@ resource "google_cloud_run_v2_service" "backend" {
       }
       env {
         name  = "CORS_ALLOWED_ORIGINS"
-        value = "http://localhost:4200,https://${var.project_id}.web.app,https://${var.project_id}.firebaseapp.com"
+        value = "http://localhost:4200,https://${var.project_id}.web.app,https://${var.project_id}.firebaseapp.com,https://${var.project_id}-hosting-site.web.app,https://${var.project_id}-hosting-site.firebaseapp.com"
       }
       env {
         name  = "SPRING_PROFILES_ACTIVE"
@@ -79,6 +79,12 @@ resource "google_cloud_run_v2_service" "backend" {
       min_instance_count = 0
       max_instance_count = 1
     }
+  }
+
+  lifecycle {
+    ignore_changes = [
+      template[0].containers[0].image,
+    ]
   }
 
   # Use the latest Cloud Run generation (Gen2)
@@ -107,7 +113,7 @@ resource "google_firebase_project" "default" {
 resource "google_firebase_hosting_site" "default" {
   provider = google-beta
   project  = var.project_id
-  site_id  = "${var.project_id}-hosting"
+  site_id  = "${var.project_id}-hosting-site"
   depends_on = [google_firebase_project.default]
 }
 

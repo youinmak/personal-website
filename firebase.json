@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "project-10c1b2d6-f9e9-46f3-8c6-hosting-site",
     "public": "frontend/dist/frontend/browser",
     "ignore": [
       "firebase.json",
