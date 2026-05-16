@@ -17,7 +17,7 @@
   },
   "about": {
     "summary": "Senior Software Architect with over 15 years of expertise in designing and delivering high-scale enterprise e-commerce platforms, particularly within the SAP Commerce Cloud (Hybris) ecosystem. Expert in cloud-native microservices architecture using Java, Spring Boot, AWS, and Kafka. A pioneer in AI-driven development, integrating generative AI agents like Claude Code and GitHub Copilot to optimize engineering workflows. Proven track record of leading architectural vision, technical solutioning, and mentoring high-performing, distributed engineering teams for global clients like Amway, Tata CLiQ, and Changi Airport Group.",
-    "skills": ["Java", "Spring Boot", "SAP Hybris", "Microservices", "AWS", "Angular", "ReactJS", "Kafka", "SQL"]
+    "skills": ["Java", "Spring Boot", "SAP Hybris", "Microservices", "AWS", "Angular", "ReactJS", "Kafka", "SQL", "AI Coding", "GCP"]
   },
   "experience": [
     {
@@ -58,28 +58,28 @@
   ],
   "projects": [
     {
-      "title": "Amway ANA Development and Consulting",
-      "description": "Design and architecture for Amway's e-commerce platform including Cart, Checkout, OMS, and payment integrations. Infrastructure implemented using AWS (DynamoDB, ECS, Lambda).",
-      "techStack": ["Java", "Spring Cloud", "Angular", "AWS", "Kafka"],
-      "link": "#"
+      "title": "US Based Direct Selling Ecommerce Marketplace",
+      "description": "Design and architecture for an entrepreneur-led health and well-being company based in USA's e-commerce platform including Cart, Checkout, OMS, and payment integrations. Infrastructure implemented using AWS (DynamoDB, ECS, Lambda).",
+      "techStack": ["SAP Hybris","Java", "Spring Cloud", "Angular", "AWS", "Kafka"],
+      "link": "https://www.amway.com/"
     },
     {
-      "title": "Tata CLiQ/Luxury Development",
+      "title": "Indian Ecommerce Marketplace",
       "description": "Omnichannel e-commerce platform integration. Designed end-to-end commerce flows across PDP, cart, promotions, and payments using SAP Hybris OCC.",
       "techStack": ["SAP Hybris", "ReactJS", "Elastic", "Solr", "Microservices"],
-      "link": "#"
+      "link": "https://www.tatacliq.com/"
     },
     {
-      "title": "iShopChangi Marketplace platform",
+      "title": "New Generation Marketplace platform (Singapore)",
       "description": "Digital transformation project designing a new generation marketplace using SAP commerce cloud, Mirakl, and Adobe AEM.",
       "techStack": ["SAP Commerce Cloud", "AEM", "React", "REST APIs"],
-      "link": "#"
+      "link": "https://www.ishopchangi.com/en/home"
     },
     {
-      "title": "Adastria B2C (Japan)",
+      "title": "B2C SAP Commerce Site (Japan)",
       "description": "E-commerce portal development integrating Hybris commerce engine with Adobe Experience Manager CMS. Handled core DB integration and custom checkouts.",
       "techStack": ["Hybris", "AEM", "Zeta Search"],
-      "link": "#"
+      "link": "https://www.dot-st.com/"
     }
   ],
   "tools": [
@@ -117,7 +117,7 @@
     { "category": "Web Technologies", "skills": ["CSS3", "jQuery", "HTML5", "AJAX", "XML", "Angular", "React"] },
     { "category": "APIs & Middleware", "skills": ["JDBC", "JPA", "Hibernate", "Spring Data", "REST", "JSON", "SOAP", "ActiveMQ", "Apache Kafka"] },
     { "category": "Database", "skills": ["Oracle 11g", "PL-SQL", "MySQL", "HSQLDB", "SQLServer"] },
-    { "category": "Tools & Platforms", "skills": ["Amazon Q Developer", "Bloomreach", "Codex", "Claude Code", "Confluence", "DataDome", "Docker", "Dynatrace", "Elastic/OpenSearch", "Github Copilot", "Google Code Assist/Gemini CLI", "Grafana", "Jenkins", "JIRA", "JMeter", "Kibana", "Kiro", "Postman", "Qualtrics", "ServiceNow", "Slack", "SonarQube", "Splunk", "UML", "Draw.io", "IntelliJ IDEA", "Eclipse", "Git", "Maven", "AWS", "Solr", "Gradle"] }
+    { "category": "Tools & Platforms", "skills": ["Google Gemini CLI", "Codex", "Amazon Q Developer", "Kiro CLI", "Bloomreach", "Claude Code", "Confluence", "DataDome", "Docker", "Dynatrace", "Elastic/OpenSearch", "Github Copilot", "Grafana", "Jenkins", "JIRA", "JMeter", "Kibana", "Postman", "Qualtrics", "ServiceNow", "Slack", "SonarQube", "Splunk", "UML", "Draw.io", "IntelliJ IDEA", "Eclipse", "Git", "Maven", "AWS", "GCP", "Apache Solr", "Gradle"] }
   ],
   "contact": {
     "email": "makarand.coep@gmail.com",
